@@ -13,7 +13,7 @@ def data_frame_exemple():
         lambda media: "Aprovado" if media >= 7 else "Reprovado"
     )
 
-    print(f"{df}")
+    print(df)
 
 
 def series_exemple():
@@ -21,7 +21,7 @@ def series_exemple():
     list = ["A", "B", "C"]
     serie = pd.Series(list)
 
-    print(f"{serie}")
+    print(serie)
 
     dict = {
         "a": "A",
@@ -43,17 +43,12 @@ def attributes_and_methods_exemple():
         "segunda_nota": [8, 6, 5, 5]
     })
 
-    print(f"Shape: {df.shape}")
-    print("\nColumns:")
-    print(df.columns)
-    print("\nInfo:")
-    print(df.info())
-    print("\nFirst two elements:")
-    print(df.head(2))
-    print("\nLast two elements:")
-    print(df.tail(2))
-    print("\nStatistics:")
-    print(df.describe())
+    print(f"Shape:\n {df.shape}")
+    print(f"\nColumns:\n {df.columns}")
+    print(f"\nInfo:\n {df.info()}")
+    print(f"\nFirst two elements:\n {df.head(2)}")
+    print(f"\nLast two elements:\n {df.tail(2)}")
+    print(f"\nStatistics:\n {df.describe()}")
 
     serie = pd.Series(['a', 'b', None, 'c'])
     print("\nisnull/isna:")
@@ -63,21 +58,21 @@ def attributes_and_methods_exemple():
 
 def read_csv_exemple():
     print("\n==========read_csv_exemple==========\n")
-    path_name = "./pandas/exemple.csv"
+    path_name = "./exemple.csv"
     df = pd.read_csv(path_name)
     print(df)
 
 
 def read_json_exemple():
     print("\n==========read_json_exemple==========\n")
-    path_name = "./pandas/exemple.json"
+    path_name = "./exemple.json"
     df = pd.read_json(path_name)
     print(df)
 
 
 def to_json_exemple():
     print("\n==========to_json_exemple==========\n")
-    path_name = "./pandas/to_json_exemple.json"
+    path_name = "./to_json_exemple.json"
     data = {
         "Nome": ["Alice", "Bob", "Charlie"],
         "Idade": [25, 30, 35],
@@ -85,12 +80,12 @@ def to_json_exemple():
     }
     df = pd.DataFrame(data)
     df.to_json(path_or_buf=path_name, orient='records')
-    print("arquivo criado em: ./pandas/to_json_exemple.json")
+    print("arquivo criado em: ./to_json_exemple.json")
 
 
 def from_csv_to_json_exemple():
-    df = pd.read_csv('./pandas/exemple.csv')
-    df.to_json('./pandas/csv_to_json_exemple.json', orient='records')
+    df = pd.read_csv('./exemple.csv')
+    df.to_json('./csv_to_json_exemple.json', orient='records')
 
 
 def loc_exemple():
@@ -116,7 +111,7 @@ def iloc_exemple():
 
 def groupby_exemple():
     print("\n==========groupby_exemple==========\n")
-    df = pd.read_json("./pandas/exemple.json")
+    df = pd.read_json("./exemple.json")
     # Agrupa os dados por Cidade e Gênero, e calcula a média da idade por grupo
     average_by_city_gender = df.groupby(['Cidade', 'Gênero'])['Idade'].mean()
 
@@ -165,9 +160,9 @@ def mean_median_mode_exemple():
     print("\n==========unique_exemple==========\n")
     serie = pd.Series([2, 2, 3, 4, 5])
 
-    print(f"média: {serie.mean()}")
-    print(f"mediana: {serie.median()}")
-    print(f"moda: {serie.mode()}")
+    print(f"Average: {serie.mean()}")
+    print(f"Median: {serie.median()}")
+    print(f"Mode: {serie.mode()}")
 
 
 if __name__ == "__main__":
