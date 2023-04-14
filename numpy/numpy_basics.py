@@ -120,7 +120,7 @@ def broadcasting_exemple():
 
 
 if __name__ == "__main__":
-    broadcasting_exemple()
+    homogeneous_exemple()
     multidimensional_exemple()
     reshape_exemple()
     transpose_exemple()
