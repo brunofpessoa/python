@@ -14,6 +14,8 @@ def data_frame_exemple():
     )
 
     print(df)
+    nome_e_situacao = df[['nome', 'situacao']]
+    print(f"\nSelecionando apenas nome e situação:\n {nome_e_situacao}")
 
 
 def series_exemple():
