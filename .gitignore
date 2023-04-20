@@ -1,3 +1,3 @@
-.venv
+env
 __pycache__
 dataframe_to_json.json
