@@ -9,6 +9,7 @@ from pygments.formatters import TerminalFormatter
 CODE_DIR = os.path.abspath('src')
 TERMINAL_SIZE = os.get_terminal_size().columns
 
+
 def clear():
     subprocess.run("clear")
 
@@ -43,7 +44,7 @@ def execute_code(code_path):
     # Verifica se Python está disponível no sistema
     python3_cmd = shutil.which("python3")
     python_cmd = shutil.which("python")
-    if python3_cmd is None and python is None:
+    if python3_cmd is None and python_cmd is None:
         print("Nenhum interpretador Python foi encontrado no sistema.")
         return
 
@@ -53,13 +54,14 @@ def execute_code(code_path):
     subprocess.run([python_cmd, code_path])
 
 
-
-
 def list_directories():
     """Lista os diretórios disponíveis e permite a seleção do usuário."""
     print_title("Diretórios")
 
-    dirs = sorted([d for d in os.listdir(CODE_DIR) if os.path.isdir(os.path.join(CODE_DIR, d))])
+    dirs = sorted(
+        [d for d in os.listdir(CODE_DIR)
+            if os.path.isdir(os.path.join(CODE_DIR, d))]
+        )
 
     if not dirs:
         print("Não há nenhum diretório para acessar.")
@@ -77,7 +79,7 @@ def list_directories():
 
 
 def list_codes(directory):
-    """Lista os códigos disponíveis em um diretório e permite a seleção do usuário."""
+    """Lista os códigos disponíveis em um diretório e permite a seleção."""
     print_title("Códigos disponíveis")
 
     codes = sorted([f for f in os.listdir(directory) if f.endswith('.py')])
